@@ -1,0 +1,44 @@
+{
+  "electricity_farm": [
+    {
+      "id": 1,
+      "farm_capacity_mw": 10,
+      "farm_name": "Steppe 01",
+      "farm_type": "wind",
+      "time_zone": "Europe/Kiev"
+    },
+    {
+      "id": 2,
+      "farm_capacity_mw": 10,
+      "farm_name": "RiverGO",
+      "farm_type": "hydro",
+      "time_zone": "Europe/Berlin"
+    }
+  ],
+  "hourly_production_data": [
+    {
+      "id": 1,
+      "electricity_produced_mwh": 9,
+      "timestamp": "2021-07-05 15:00:00.0",
+      "electricity_farm_id": 1
+    },
+    {
+      "id": 2,
+      "electricity_produced_mwh": 3.34,
+      "timestamp": "2021-07-05 16:00:00.0",
+      "electricity_farm_id": 1
+    },
+    {
+      "id": 3,
+      "electricity_produced_mwh": 7.9,
+      "timestamp": "2021-07-05 18:00:00.0",
+      "electricity_farm_id": 1
+    },
+    {
+      "id": 4,
+      "electricity_produced_mwh": 9.834,
+      "timestamp": "2021-07-05 19:00:00.0",
+      "electricity_farm_id": 1
+    }
+  ]
+}

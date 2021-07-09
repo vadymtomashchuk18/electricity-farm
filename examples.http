@@ -1,0 +1,32 @@
+GET http://127.0.0.1:8080/api/v1/health
+Accept: application/json
+
+### by two timestamps
+GET http://127.0.0.1:8080/api/v1/capacityBetweenTwoTimestamps
+Content-Type: application/json
+
+{
+  "electricityFarmId": 1,
+  "timeRange": {
+    "from": "2021-07-05T14:00:00.000000",
+    "to": "2021-07-05T19:00:00.000000"
+  }
+}
+
+### by two timestamps
+GET http://127.0.0.1:8080/api/v1/capacityBetweenTwoTimestamps
+Content-Type: application/json
+
+{
+  "electricityFarmId": 1,
+  "timeRange": {
+    "from": "2021-07-05T10:00:00.000000",
+    "to": "2021-07-05T14:00:00.000000"
+  }
+}
+
+###
+GET http://127.0.0.1:8080/swagger-ui
+
+###
+GET http://127.0.0.1:8080/v3/api-docs

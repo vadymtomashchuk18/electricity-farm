@@ -1,0 +1,29 @@
+server:
+  address: 127.0.0.1
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:25432/electricity_farm
+    username: electricity_farm
+    password: electricity_farm
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      # https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby
+      maximum-pool-size: 100
+      minimum-idle: 40
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    hibernate:
+      ddl-auto: update
+
+  liquibase:
+    enabled: false # manual
+    change-log: classpath:changelog.xml
+
+springfox:
+  documentation:
+    enabled: true
+

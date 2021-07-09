@@ -1,0 +1,42 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="1-init-farms" author="vtomashchuk">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(id)
+                from electricity_farm
+                where id between 1 and 2
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO electricity_farm(id, farm_name, farm_type, farm_capacity_mw, time_zone) VALUES(1, 'Steppe 01',
+            'wind', 10, 'Europe/Kiev');
+            INSERT INTO electricity_farm(id, farm_name, farm_type, farm_capacity_mw, time_zone) VALUES(2, 'RiverGO',
+            'hydro', 10, 'Europe/Berlin');
+        </sql>
+    </changeSet>
+
+    <changeSet id="2-init-production-data" author="vtomashchuk">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(id)
+                from hourly_production_data
+                where id between 1 and 4
+            </sqlCheck>
+        </preConditions>
+        <sql>
+            INSERT INTO hourly_production_data(id, electricity_farm_id, timestamp, electricity_produced_mwh) VALUES(1,
+            1, '2021-07-05T15:00:00z', 9.0);
+            INSERT INTO hourly_production_data(id, electricity_farm_id, timestamp, electricity_produced_mwh) VALUES(2,
+            1, '2021-07-05T16:00:00z', 3.34);
+            INSERT INTO hourly_production_data(id, electricity_farm_id, timestamp, electricity_produced_mwh) VALUES(3,
+            1, '2021-07-05T18:00:00z', 7.9);
+            INSERT INTO hourly_production_data(id, electricity_farm_id, timestamp, electricity_produced_mwh) VALUES(4,
+            1, '2021-07-05T19:00:00z', 9.834);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

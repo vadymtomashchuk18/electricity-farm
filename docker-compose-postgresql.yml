@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  db-postgres13:
+    container_name: farm_
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: 'electricity_farm'
+      POSTGRES_PASSWORD: 'electricity_farm'
+      POSTGRES_DB: 'electricity_farm'
+    ports:
+      # <Port exposed> : <PG Port running inside container>
+      - '25432:5432'
+    expose:
+      # Opens PG port on the container to other services
+      - '5432'
+      # Where our data will be persisted
+    volumes:
+      - farm_:/var/lib/postgresql/data
+# Names our volume
+volumes:
+  farm_:

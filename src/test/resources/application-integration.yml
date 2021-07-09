@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    properties.hibernate.hbm2ddl.auto: update
+    hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL11Dialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:tc:postgresql:9.6.8:///test_electricity_farm
+#    url: jdbc:postgresql://localhost:5555/test_electricity_farm
+    username: test_electricity_farm
+    password: test_electricity_farm
+
+
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:25432/test
+#    username: test
+#    password: test
