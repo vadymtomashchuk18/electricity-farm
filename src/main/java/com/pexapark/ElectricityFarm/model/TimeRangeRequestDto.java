@@ -3,23 +3,20 @@ package com.pexapark.ElectricityFarm.model;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
 public class TimeRangeRequestDto {
-  @NotNull(message = "Trade date is required")
   @ApiModelProperty(
-      value = "Date at which the transaction was",
+      value = "The first timestamp point from which capacity will be calculated",
       required = true,
-      example = "2015-09-13T23:29:52.123Z")
+      example = "2015-09-13 23:29:52.123")
   private LocalDateTime from;
 
-  @NotNull(message = "Trade date is required")
   @ApiModelProperty(
-      value = "Date at which the transaction was",
+      value = "The last timestamp point from which capacity will be calculated",
       required = true,
-      example = "2015-09-13T23:29:52.123Z")
+      example = "2016-09-13 23:29:52.123")
   private LocalDateTime to;
 
   public TimeRange convertToTimeRange() {

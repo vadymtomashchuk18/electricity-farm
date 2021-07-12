@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -30,9 +31,10 @@ public class CapacityFactorService {
     this.validationService = validationService;
   }
 
-  public double calcCapacityFactorByTimeRange(TimeRange timeRange) {
-    validationService.validateTimeRange(timeRange);
-    ElectricityFarm currentElectricityFarm = electricityFarmService.getDefaultElectricityFarm(1);
+  public double calcCapacityFactorByTimeRange(
+      @NotNull Long electricityFarmId, TimeRange timeRange) {
+    ElectricityFarm currentElectricityFarm =
+        electricityFarmService.getDefaultElectricityFarm(electricityFarmId);
     log.info("Calculating according to {} time zone", currentElectricityFarm.getTimeZone());
 
     LocalDateTime from =

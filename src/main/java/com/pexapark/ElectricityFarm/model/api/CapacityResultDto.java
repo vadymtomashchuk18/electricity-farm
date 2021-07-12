@@ -1,6 +1,7 @@
-package com.pexapark.ElectricityFarm.model;
+package com.pexapark.ElectricityFarm.model.api;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,23 +16,23 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CapacityResultDto {
 
-/*  @ApiModelProperty(
-      value = "Time range between which capacity is calculated",
-      example = "{from: 2019-11-12T13:28:22, to: 2019-12-12T13:28:22}")
-  private TimeRange timeRange;*/
+  @ApiModelProperty(value = "Electricity farm id", example = "321")
+  @JsonProperty(value = "electricity_farm_id")
+  private Long electricityFarmId;
 
   @ApiModelProperty(
-          value = "Time from which capacity will be calculated",
-          example = "from: 2019-11-12T13:28:22")
+      value = "The first timestamp point from which capacity will be calculated",
+      example = "2019-11-12 13:28:22")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   private LocalDateTime from;
 
   @ApiModelProperty(
-          value = "Time untill which capacity will be calculated",
-          example = "from: 2019-11-12T13:28:22")
+      value = "The last timestamp point from which capacity will be calculated",
+      example = "2020-11-12 13:28:22")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   private LocalDateTime to;
 
   @ApiModelProperty(value = "Calculated capacity value", example = "8.906")
+  @JsonProperty(value = "capacity_value")
   private Double capacityValue;
 }
