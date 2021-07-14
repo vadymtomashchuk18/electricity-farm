@@ -1,7 +1,6 @@
 package com.pexapark.ElectricityFarm.config;
 
 import com.pexapark.ElectricityFarm.config.test.IntegrationTestPostgresContainer;
-import org.junit.BeforeClass;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;

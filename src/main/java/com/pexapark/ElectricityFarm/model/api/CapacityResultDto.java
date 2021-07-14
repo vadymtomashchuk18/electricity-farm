@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
@@ -34,5 +35,5 @@ public class CapacityResultDto {
 
   @ApiModelProperty(value = "Calculated capacity value", example = "8.906")
   @JsonProperty(value = "capacity_value")
-  private Double capacityValue;
+  private BigDecimal capacityValue;
 }

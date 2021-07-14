@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -25,5 +26,5 @@ public class HourlyProductionData {
   @Column private LocalDateTime timestamp;
 
   @Column(name = "electricity_produced_mwh")
-  private Double electricityProducedMWh;
+  private BigDecimal electricityProducedMWh;
 }

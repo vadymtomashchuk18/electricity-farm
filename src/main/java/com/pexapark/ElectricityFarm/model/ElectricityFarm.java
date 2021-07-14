@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "electricity_farm")
@@ -25,7 +26,7 @@ public class ElectricityFarm {
   private FarmType farmType;
 
   @Column(name = "farm_capacity_mw")
-  private Double farmCapacityMW;
+  private BigDecimal farmCapacityMW;
 
   @Column(name = "time_zone")
   private String timeZone;

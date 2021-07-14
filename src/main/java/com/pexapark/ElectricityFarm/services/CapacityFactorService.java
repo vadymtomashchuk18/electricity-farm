@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -31,7 +33,7 @@ public class CapacityFactorService {
     this.validationService = validationService;
   }
 
-  public double calcCapacityFactorByTimeRange(
+  public BigDecimal calcCapacityFactorByTimeRange(
       @NotNull Long electricityFarmId, TimeRange timeRange) {
     ElectricityFarm currentElectricityFarm =
         electricityFarmService.getDefaultElectricityFarm(electricityFarmId);
@@ -51,11 +53,14 @@ public class CapacityFactorService {
     return calcAverageCapacityOfProducedElectricity(productionDataList);
   }
 
-  private double calcAverageCapacityOfProducedElectricity(
+  private BigDecimal calcAverageCapacityOfProducedElectricity(
       List<HourlyProductionData> productionDataList) {
-    return productionDataList.stream()
-        .mapToDouble(HourlyProductionData::getElectricityProducedMWh)
-        .summaryStatistics()
-        .getAverage();
+    BigDecimal sum =
+        productionDataList.stream()
+            .map(HourlyProductionData::getElectricityProducedMWh)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+    return productionDataList.size() == 0
+        ? BigDecimal.ZERO
+        : sum.divide(BigDecimal.valueOf(productionDataList.size()),RoundingMode.HALF_UP);
   }
 }
