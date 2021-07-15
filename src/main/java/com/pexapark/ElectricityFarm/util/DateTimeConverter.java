@@ -15,8 +15,6 @@ public final class DateTimeConverter {
     ZoneId zone = ZoneId.of(timeZone);
     ZonedDateTime zonedDateTime = dateTime.atZone(zone);
 
-    LocalDateTime dateTimeUTC =
-        LocalDateTime.from(zonedDateTime.withZoneSameInstant(ZoneOffset.UTC));
-    return dateTimeUTC;
+    return LocalDateTime.from(zonedDateTime.withZoneSameInstant(ZoneOffset.UTC));
   }
 }

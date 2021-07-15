@@ -55,7 +55,7 @@ public class B2BFarmCapacityFactorService {
         electricityFarmId,
         requestDto.getFrom(),
         requestDto.getTo(),
-        capacityFactorService.calcCapacityFactorByTimeRange(
+        capacityFactorService.capacityFactorInTimeRange(
             electricityFarmId, requestDto.convertToTimeRange()));
   }
 }

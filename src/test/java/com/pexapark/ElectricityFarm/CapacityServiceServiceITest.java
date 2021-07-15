@@ -4,7 +4,6 @@ import com.github.database.rider.core.api.configuration.DBUnit;
 import com.github.database.rider.core.api.dataset.ExpectedDataSet;
 import com.github.database.rider.spring.api.DBRider;
 import com.pexapark.ElectricityFarm.config.IntegrationTestDB;
-import com.pexapark.ElectricityFarm.config.test.CleanDatabaseBeforeAndAfter;
 import com.pexapark.ElectricityFarm.model.TimeRange;
 import com.pexapark.ElectricityFarm.services.CapacityFactorService;
 import org.assertj.core.api.Assertions;
@@ -39,7 +38,7 @@ public class CapacityServiceServiceITest extends IntegrationTestDB {
     Long electricityFarmId = 1L;
 
     Assertions.assertThat(
-            capacityFactorService.calcCapacityFactorByTimeRange(electricityFarmId, timeRange))
-        .isEqualTo(BigDecimal.valueOf(6.17));
+            capacityFactorService.capacityFactorInTimeRange(electricityFarmId, timeRange))
+        .isEqualTo(new BigDecimal("0.2468000000"));
   }
 }

@@ -1,5 +1,6 @@
 package com.pexapark.ElectricityFarm.model;
 
+import com.pexapark.ElectricityFarm.util.DateTimeConverter;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
